@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import React,{useEffect} from 'react';
+import './App.css';
+// import DateModule from './components/DateModule';
+import FinancialContextProvider from "./contexts/FinancialContext";
+import Dolar from 'components/Dolar';
+// import BarChart from './components/BarChart';
+
+const App = () => {
+
+const getDolar = async() => {
+  try {
+    const res = await fetch('https://api.sbif.cl/api-sbifv3/recursos_api/dolar/2010/01/dias/05?apikey=bcab1f6493785dc221a83db5d7cc6d3cbd6525d0&formato=json')
+    const data = await res.json()
+    console.log(data.Dolares[0]);
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+  useEffect(() => {
+    // getDolar()
+  },[])
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FinancialContextProvider>
+      <Dolar />
+   {/* <DateModule handleChangeDate={handleChangeDate}/> */}
+     {/* <BarChart /> */}
+    </FinancialContextProvider> 
   );
 }
 
