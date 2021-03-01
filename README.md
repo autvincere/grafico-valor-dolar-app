@@ -1,6 +1,6 @@
-# Visualizador de dolar
+# Visualizador del Dolar 💵
 
-Este proyecto sirve para observar de forma grafica el valor del dolar, diario, fecha anterior y entre fechas. Obtenidos mediante API Rest, desde la web.
+Este proyecto sirve para observar de forma grafica el valor del dolar, en tres modalidades: valor diario, valor anterior y entre fechas. La Data es obtenida mediante API Rest.
 
 La API utilizada es proporcionada por :
 * [CMF Bancos .v3](http://api.sbif.cl/index.html) - Comisión para el Mercado Financiero - Bancos e Instituciones Financieras
@@ -8,16 +8,16 @@ La API utilizada es proporcionada por :
 
 ## Comenzando 🚀
 
-_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
+Estas instrucciones le permitirán obtener una copia del proyecto en funcionamiento en su máquina local para propósitos de desarrollo y pruebas.
 
 ```
 https://github.com/autvincere/grafico-valor-dolar-app.git
 ```
 
 
-### Instalación 🔧
+## Instalación 🔧
 
-_Para correr este proyecto necesitas una serie de paquetes npm, ademas de los usuales ocupados por el entorno de React js, necesitaras los siguientes:_
+_Para correr este proyecto necesitaras una serie de paquetes npm, ademas de los usuales ocupados por el entorno de React js, los cuales son:_
 
 
 ```
