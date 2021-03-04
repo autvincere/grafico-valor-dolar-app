@@ -1,16 +1,18 @@
 import React from 'react'
-import { Bar, Line } from 'react-chartjs-2'
+import { Line } from 'react-chartjs-2'
 
-const BarChart = () => {
+const Chart = ({ valor, fecha }) => {
+     // console.log(valor);
+     // console.log(fecha);
      return (
-          <div>
+          <>
                <Line
-                    data={{
-                         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                     data={{
+                         labels: fecha,
                          datasets: [
                               {
                                    label: 'dolar anual',
-                                   data: [12, 19, 3, 5, 1, 3],
+                                   data: valor,
                                    backgroundColor: [
                                         'rgba(255, 99, 132, 0.2)',
 
@@ -20,17 +22,11 @@ const BarChart = () => {
                                     ],
                                     borderWidth: 2      
                               },
-                              // {
-                              //      label: 'Quantity',
-                              //      data: [90, 30, 30, 50, 10, 60],
-                              //      backgroundColor:'blue', 
-                              //      borderColor: 'red',
-                              //      borderWidth:3
-                              // },
+
                          ],
                     }}
-                    height={400}
-                    width={600}
+                    height={300}
+                    width={500}
                     options={{
                          maintainAspectRatio: false,
                          scales: {
@@ -46,9 +42,10 @@ const BarChart = () => {
                               }
                          }
                     }}
+               
                />
-          </div>
+          </>
      )
 }
 
-export default BarChart
+export default Chart
