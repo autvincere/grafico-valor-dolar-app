@@ -12,7 +12,7 @@ const Dolar = () => {
 
      const getValue = (state) => {
           const valor = state.map(value => parseInt(`${value.Valor}`))
-          const fecha = state.map(value => moment(value.Fecha).format('L'))
+          const fecha = state.map(value => moment(value.Fecha).format('D MMMM'))
           return [ valor, fecha ]
           // console.log(fecha);
           // console.log(fecha[0]);

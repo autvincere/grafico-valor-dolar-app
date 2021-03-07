@@ -2,11 +2,12 @@ import React from "react";
 import "./assets/css/styles.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 // import DateModule from './components/DateModule';
+import Header from "components/Common/Header";
 import FinancialContextProvider from "./contexts/FinancialContext";
 import Dolar from "components/Dolar";
-import Header from "components/Common/Header";
-import BarChart from "./components/BarChart";
-import ValueByDatesDolar from "components/ValueByDatesDolar";
+import ValueByDatesProvider from './contexts/ValueByDatesDolarContext'
+import ValueByDateOfDay from './components/ValueByDateOfDay'
+import ValueByDates from "components/ValueByDates";
 
 const App = () => {
   return (
@@ -15,15 +16,16 @@ const App = () => {
       <Switch>
         <Route exact path="/">
           <FinancialContextProvider>
-            <Dolar />
+            <ValueByDateOfDay />
           </FinancialContextProvider>
         </Route>
         <Route path="/valor-por-fechas">
-          <ValueByDatesDolar />
+          <ValueByDatesProvider>
+          <ValueByDates />
+          </ValueByDatesProvider>
         </Route>
       </Switch>
       {/* <DateModule handleChangeDate={handleChangeDate}/> */}
-      {/* <BarChart /> */}
     </BrowserRouter>
   );
 };

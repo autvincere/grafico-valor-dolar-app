@@ -3,20 +3,19 @@ import { dayDateValue, oneDateValue } from "../constants/index";
 
 export const FinancialContext = createContext();
 
-// export const handleChangeDate = (e) => {
-//   console.log(e.target.value);
-//   setDates({
-//     ...dates,
-//     [e.target.name]: e.target.value,
-//   });
-// };
-
 const FinancialContextProvider = ({ children }) => {
 
-     const [prueba, setPrueba] = useState({
-          Moneda: 'bitcoin',
-          valor: 7750
-     })
+     const [dates, setDates] = useState('');
+
+     const handleChangeDate = (e) => {
+          console.log(e.target.value);
+          setDates({
+            ...dates,
+            [e.target.name]: e.target.value,
+          });
+     };
+
+   
      const [doneFetch, setDoneFetch] = useState();
 
      const [fetchUnit, setFetchUnit] = useState([]);

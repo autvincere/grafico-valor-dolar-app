@@ -11,7 +11,7 @@ const Chart = ({ valor, fecha }) => {
                          labels: fecha,
                          datasets: [
                               {
-                                   label: 'dolar anual',
+                                   label: 'Valor Año actual',
                                    data: valor,
                                    backgroundColor: [
                                         'rgba(255, 99, 132, 0.2)',
@@ -34,6 +34,9 @@ const Chart = ({ valor, fecha }) => {
                                   ticks: {
                                       beginAtZero: true
                                   }
+                              }],
+                              xAxes: [{
+                                   gridLines: {display: false}
                               }]
                          },
                          legend: {
