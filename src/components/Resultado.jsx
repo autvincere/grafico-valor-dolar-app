@@ -31,7 +31,7 @@ const Resultado = ({ valor, fecha }) => {
      const formatSpanish = moment(date).format('dddd LL')
      return (
 
-          <Paper className={classes.paper}>
+          <Paper className={classes.paper} elevation={3} >
                 
                <Typography className={classes.title} color="textSecondary" variant="h5">
                     Valor del Día: <Box component="span" className={classes.date}>{firstLetterCapital(formatSpanish)}</Box>

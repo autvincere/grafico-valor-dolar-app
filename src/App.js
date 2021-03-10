@@ -4,10 +4,10 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 // import DateModule from './components/DateModule';
 import Header from "components/Common/Header";
 import FinancialContextProvider from "./contexts/FinancialContext";
-import Dolar from "components/Dolar";
 import ValueByDatesProvider from './contexts/ValueByDatesDolarContext'
 import ValueByDateOfDay from './components/ValueByDateOfDay'
 import ValueByDates from "components/ValueByDates";
+import Footer from "components/Common/Footer";
 
 const App = () => {
   return (
@@ -25,7 +25,7 @@ const App = () => {
           </ValueByDatesProvider>
         </Route>
       </Switch>
-      {/* <DateModule handleChangeDate={handleChangeDate}/> */}
+      <Footer />
     </BrowserRouter>
   );
 };
