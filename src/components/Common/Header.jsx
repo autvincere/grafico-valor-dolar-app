@@ -7,11 +7,13 @@ import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid'
 import Box from '@material-ui/core/Box';
+// import Navbar from '../Common/Navbar'
+import Navbar from '../Common/Navbar'
 
 
 const useStyles = makeStyles((theme) => ({
      root: {
-          flexGrow: 1,
+          // flexGrow: 1,
      },
      titleCenter: {
           justifyContent: 'center',
@@ -46,15 +48,8 @@ const Header = () => {
                  wrap="nowrap"
                  
                >
-                 <Box mt={4}>
-                    
-                    <Link className="option" to='/'>
-                         Valor Individual
-                    </Link>
-                    /
-                    <Link className="option" to='/valor-por-fechas'>
-                         Valor Por Periodos
-                    </Link>
+                 <Box mt={4} mb={4}>
+                         <Navbar />
                </Box>
                </Grid>
                

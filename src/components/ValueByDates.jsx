@@ -6,7 +6,9 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Message from './Common/Message';
 import ChartTwoValues from './ChartTwoValues';
+import ProgressBar from './Common/ProgressBar';
 
+import { getValue } from '../Utils'
 
 const useStyles = makeStyles((theme) => ({
      root: {
@@ -25,19 +27,7 @@ const useStyles = makeStyles((theme) => ({
 const ValueByDates = () => {
 
      const classes = useStyles();
-     const { dateOne, dateTwo, doneFetch, chartExists, handleChangeDate, dateRange} = useContext(ValueByDatesDolarContext)
-
-     // useEffect(
-     //      () => {
-
-     //           if (dateOne && dateTwo) {
-     //                const [yearStart, monthStart, dayStart] = dateSeparator(dateOne)
-     //                const [yearEnd, monthEnd, dayEnd] = dateSeparator(dateTwo)
-     //               getDates('dolar', yearStart, monthStart, dayStart, yearEnd, monthEnd, dayEnd)
-     //           }
-     //      },
-     //      [dateOne,dateTwo,getDates]
-     // );
+     const { doneFetchValues, chartExists, handleChangeDate, dateRange } = useContext(ValueByDatesDolarContext)
 
      return (
           <Grid container className={classes.root} spacing={1}>
@@ -50,26 +40,23 @@ const ValueByDates = () => {
                               <DateModule handleChangeDate={handleChangeDate} id="dateTwo" />
                          </Box>
                          <Grid
-                           container
-                           spacing={1}
-                           direction="row"
-                           justify="center"
-                           alignItems="center"
-                           alignContent="center"
-                           wrap="nowrap"
+                              container
+                              spacing={1}
+                              direction="row"
+                              justify="center"
+                              alignItems="center"
+                              alignContent="center"
+                              wrap="nowrap"
                          >
 
-                             {/* {
-                              dateOne && dateTwo ?  <ChartTwoValues /> : <Message message="Por favor, ingrese las fechas de su consulta"/>
-                              } */}
+                       
                               {
-                                   chartExists === true ? <ChartTwoValues dateOne={dateOne.date} dateTwo={dateTwo.date} dateRange={dateRange}/> : <Message message="Por favor, ingrese las fechas de su consulta"/>
+                                   chartExists === true ? <ChartTwoValues dateRange={dateRange} doneFetchValues={ doneFetchValues}/> : <Message message="Por favor, ingrese las fechas de su consulta" />
                               }
-                     {/* compareDates(dateOne,dateTwo ) */}
-                              {/* chartExists ? console.log('aca va el grafico') : <Message message="Por favor, ingrese las fechas de su consulta"/> */}
-                        
+                          
+
                          </Grid>
-               
+
                     </Grid>
                </Grid>
 

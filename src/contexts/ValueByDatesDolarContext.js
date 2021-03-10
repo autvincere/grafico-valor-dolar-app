@@ -9,7 +9,7 @@ export const ValueByDatesDolarContext = createContext();
 const ValueByDatesDolarContextProvider = ({ children }) => {
   const [dateOne, setDateOne] = useState("");
   const [dateTwo, setDateTwo] = useState("");
-  const [doneFetch, setDoneFetch] = useState(false);
+  const [doneFetchValues, setDoneFetchValues] = useState(false);
      const [chartExists, setChartExists] = useState(false);
      const [dateRange,setDateRange] = useState([])
 
@@ -39,7 +39,7 @@ const ValueByDatesDolarContextProvider = ({ children }) => {
           const res = await fetch(twoDatesValue(dolar, yearStart, monthStart, dayStart, yearEnd, monthEnd, dayEnd))
           const data = await res.json()
           setDateRange(data.Dolares)
-          setDoneFetch(true);
+          setDoneFetchValues(true);
           console.log(data.Dolares)
 
      } catch (error) {
@@ -65,7 +65,7 @@ useEffect(() => {
 
   return (
     <ValueByDatesDolarContext.Provider
-      value={{ dateOne, dateTwo, doneFetch, chartExists, handleChangeDate,getDates,dateRange }}
+      value={{ doneFetchValues, chartExists, handleChangeDate,getDates,dateRange }}
     >
       {children}
     </ValueByDatesDolarContext.Provider>

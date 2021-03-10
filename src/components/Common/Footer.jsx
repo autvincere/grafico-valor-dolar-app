@@ -8,7 +8,7 @@ import AppBar from '@material-ui/core/AppBar';
 
 const useStyles = makeStyles((theme) => ({
      root: {
-          flexGrow: 1,
+          marginTop: 'auto',
      },
      titleCenter: {
           justifyContent: 'center',

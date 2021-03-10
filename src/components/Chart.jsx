@@ -2,15 +2,6 @@ import React from 'react'
 import { Line } from 'react-chartjs-2'
 
 const Chart = ({ valor, fecha }) => { 
-     
-//     console.log(valor.length)
-//      console.log(total / valor.length);
-     // const average = (valor) => {
-     //      const total = valor.reduce((a, b) => a + b, 0)
-     //      const result = total / valor.length
-     //      const final = result.toFixed(0)
-     //      return final
-     // }
      return (
           <>
                <Line

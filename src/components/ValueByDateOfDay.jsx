@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 
-import moment from 'moment'
+import { getValue } from '../Utils'
 import Chart from './Chart'
 import Resultado from 'components/Resultado';
 import { FinancialContext } from '../contexts/FinancialContext'
@@ -11,15 +11,7 @@ import Averages from './Common/Averages';
 
 const ValueByDateOfDay = () => {
      const { fetchUnit, fetchYear, doneFetchUnit, doneFetchYear } = useContext(FinancialContext)
-     // console.log(fetchYear.length);
-     const getValue = (state) => {
-          const valor = state.map(value => parseInt(`${value.Valor}`))
-          const fecha = state.map(value => moment(value.Fecha).format('D MMMM'))
-          return [valor, fecha]
-          // console.log(fecha);
-          // console.log(fecha[0]);
-     }
-     // console.log(fetchYear);
+
      return (
           <Grid
                // style={{height:'100vh'}}

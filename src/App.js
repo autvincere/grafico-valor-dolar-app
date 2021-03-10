@@ -19,7 +19,7 @@ const App = () => {
             <ValueByDateOfDay />
           </FinancialContextProvider>
         </Route>
-        <Route path="/valor-por-fechas">
+        <Route path="/valor-por-periodos">
           <ValueByDatesProvider>
           <ValueByDates />
           </ValueByDatesProvider>

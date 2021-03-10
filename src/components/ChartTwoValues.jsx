@@ -1,40 +1,28 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import Box from '@material-ui/core/Box';
-// import { dateSeparator } from "../Utils";
+import Chart from './Chart'
+import Averages from './Common/Averages';
+import ProgressBar from './Common/ProgressBar';
 
-const ChartTwoValues = ({ dateOne, dateTwo, getDates, dateRange, setDateRange }) => {
+import { getValue } from '../Utils'
 
-     // const { dateOne } = prop     nst [dateRange, setDateRange] = useState(['caca']);
-     // console.log(props);
-     // if (dateOne && dateTwo) {
-     //      const [yearStart, monthStart, dayStart] = dateSeparator(dateOne)
-     //      const [yearEnd, monthEnd, dayEnd] = dateSeparator(dateTwo)
-     //      getDates('dolar', yearStart, monthStart, dayStart, yearEnd, monthEnd, dayEnd)
-     // }
+const ChartTwoValues = ({ dateRange, doneFetchValues }) => {
 
-     
-     
-     // useEffect(
-     //      () => {
-
-     //           if (dateOne && dateTwo) {
-     //                const [yearStart, monthStart, dayStart] = dateSeparator(dateOne)
-     //                const [yearEnd, monthEnd, dayEnd] = dateSeparator(dateTwo)
-     //               getDates('dolar', yearStart, monthStart, dayStart, yearEnd, monthEnd, dayEnd)
-     //           }
-     //      },
-     //      [dateOne,dateTwo,getDates]
-     // );
-
+     const [valor, fecha] = getValue(dateRange)
 
      return (
-          <Box mt={8}>
-               ChartTwoValues
-               {/* { dateOne} {dateTwo} */}
-               {/* {
-                    dateRange && console.log('existe')
-               } */}
-          </Box>
+          doneFetchValues ?
+               (dateRange.length ?
+                    <>
+                         <Box mt={8}>
+                              <Chart valor={valor} fecha={fecha} />
+                         </Box>
+                         <Box mt={8}>
+                              <Averages valor={valor}/>
+                         </Box>
+                    </>
+                    : <p>No hay nada</p>)
+               : <ProgressBar />
      )
 }
 
