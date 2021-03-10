@@ -33,24 +33,7 @@ const ValueByDatesDolarContextProvider = ({ children }) => {
     // console.log(dateOne);
     // console.log(dateTwo);
   };
- 
-
-
-  useEffect(() => {
-    if (dateOne && dateTwo) {
-     compareDates(dateOne, dateTwo);
-    }
-  }, [dateOne, dateTwo]);
      
-  const compareDates = (dateOne, dateTwo) => {
-     const one = moment(dateOne.date);
-     const two = moment(dateTwo.date);
-     const difference = two.diff(one, "days");
- 
-     if (difference > 0) {
-       setChartExists(true);
-     }
-  }
   const getDates = async (dolar, yearStart, monthStart, dayStart, yearEnd, monthEnd, dayEnd) => {
      try {
           const res = await fetch(twoDatesValue(dolar, yearStart, monthStart, dayStart, yearEnd, monthEnd, dayEnd))
@@ -64,13 +47,29 @@ const ValueByDatesDolarContextProvider = ({ children }) => {
      }
 }
 
+useEffect(() => {
+  if (dateOne && dateTwo) {
+
+      const one = moment(dateOne.date);
+      const two = moment(dateTwo.date);
+      const difference = two.diff(one, "days");
+  
+      if (difference > 0) {
+        setChartExists(true)
+        const [yearStart, monthStart, dayStart] = dateSeparator(dateOne.date)
+        const [yearEnd, monthEnd, dayEnd] = dateSeparator(dateTwo.date)
+        getDates('dolar', yearStart, monthStart, dayStart, yearEnd, monthEnd, dayEnd)
+      }
+   }
+}, [dateOne, dateTwo]);
+
   return (
     <ValueByDatesDolarContext.Provider
-      value={{ dateOne, dateTwo, doneFetch, chartExists, handleChangeDate,getDates,dateRange,setDateRange }}
+      value={{ dateOne, dateTwo, doneFetch, chartExists, handleChangeDate,getDates,dateRange }}
     >
       {children}
     </ValueByDatesDolarContext.Provider>
-  );
+  )
 };
 
 export default ValueByDatesDolarContextProvider;

@@ -22,7 +22,7 @@ const ValueByDateOfDay = () => {
      // console.log(fetchYear);
      return (
           <Grid
-               style={{height:'100vh'}}
+               // style={{height:'100vh'}}
                mt={20}
                container
                spacing={1}
@@ -43,8 +43,6 @@ const ValueByDateOfDay = () => {
                                    )
                               }) : <p>No hay nada</p>)
                               : <ProgressBar />
-                         // console.log(true)
-                         // : console.log('cargando...')
                     }
                </Box>
 

@@ -1,13 +1,9 @@
-import React, { useContext, useState,useEffect } from 'react'
+import React, { useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import DateModule from './DateModule'
 import { ValueByDatesDolarContext } from '../contexts/ValueByDatesDolarContext'
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-
-// import moment from 'moment'
-// import 'moment/locale/es'
-import { dateSeparator } from "../Utils";
 import Message from './Common/Message';
 import ChartTwoValues from './ChartTwoValues';
 
@@ -29,19 +25,19 @@ const useStyles = makeStyles((theme) => ({
 const ValueByDates = () => {
 
      const classes = useStyles();
-     const { dateOne, dateTwo, doneFetch, chartExists, handleChangeDate,getDates, dateRange, setDateRange} = useContext(ValueByDatesDolarContext)
+     const { dateOne, dateTwo, doneFetch, chartExists, handleChangeDate, dateRange} = useContext(ValueByDatesDolarContext)
 
-     useEffect(
-          () => {
+     // useEffect(
+     //      () => {
 
-               if (dateOne && dateTwo) {
-                    const [yearStart, monthStart, dayStart] = dateSeparator(dateOne)
-                    const [yearEnd, monthEnd, dayEnd] = dateSeparator(dateTwo)
-                   getDates('dolar', yearStart, monthStart, dayStart, yearEnd, monthEnd, dayEnd)
-               }
-          },
-          [dateOne,dateTwo,getDates]
-     );
+     //           if (dateOne && dateTwo) {
+     //                const [yearStart, monthStart, dayStart] = dateSeparator(dateOne)
+     //                const [yearEnd, monthEnd, dayEnd] = dateSeparator(dateTwo)
+     //               getDates('dolar', yearStart, monthStart, dayStart, yearEnd, monthEnd, dayEnd)
+     //           }
+     //      },
+     //      [dateOne,dateTwo,getDates]
+     // );
 
      return (
           <Grid container className={classes.root} spacing={1}>
@@ -67,7 +63,7 @@ const ValueByDates = () => {
                               dateOne && dateTwo ?  <ChartTwoValues /> : <Message message="Por favor, ingrese las fechas de su consulta"/>
                               } */}
                               {
-                                   chartExists === true ? <ChartTwoValues dateOne={dateOne.date} dateTwo={dateTwo.date} getDates={getDates} dateRange={dateRange} setDateRange={setDateRange}/> : <Message message="Por favor, ingrese las fechas de su consulta"/>
+                                   chartExists === true ? <ChartTwoValues dateOne={dateOne.date} dateTwo={dateTwo.date} dateRange={dateRange}/> : <Message message="Por favor, ingrese las fechas de su consulta"/>
                               }
                      {/* compareDates(dateOne,dateTwo ) */}
                               {/* chartExists ? console.log('aca va el grafico') : <Message message="Por favor, ingrese las fechas de su consulta"/> */}

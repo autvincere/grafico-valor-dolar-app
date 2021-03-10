@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react'
 import Box from '@material-ui/core/Box';
-import { dateSeparator } from "../Utils";
+// import { dateSeparator } from "../Utils";
 
 const ChartTwoValues = ({ dateOne, dateTwo, getDates, dateRange, setDateRange }) => {
 
