@@ -1,12 +1,13 @@
 import React from "react";
 import "./assets/css/styles.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-// import DateModule from './components/DateModule';
 import Header from "components/Common/Header";
-import FinancialContextProvider from "./contexts/FinancialContext";
+import ValueByDateOfDayContextProvider from "./contexts/ValueByDateOfDayContext";
 import ValueByDatesProvider from './contexts/ValueByDatesDolarContext'
-import ValueByDateOfDay from './components/ValueByDateOfDay'
-import ValueByDates from "components/ValueByDates";
+
+import ValueByDateOfDay from './components/valueByDate'
+import ValueByDates from "components/valueByDates";
+
 import Footer from "components/Common/Footer";
 
 const App = () => {
@@ -15,9 +16,9 @@ const App = () => {
       <Header />
       <Switch>
         <Route exact path="/">
-          <FinancialContextProvider>
+          <ValueByDateOfDayContextProvider>
             <ValueByDateOfDay />
-          </FinancialContextProvider>
+          </ValueByDateOfDayContextProvider>
         </Route>
         <Route path="/valor-por-periodos">
           <ValueByDatesProvider>

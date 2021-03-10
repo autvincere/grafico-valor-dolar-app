@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import moment from 'moment'
 
 const useStyles = makeStyles( (theme) => ({
      container: {
@@ -21,10 +20,6 @@ const DateModule = ({ handleChangeDate, id }) => {
      // const d = new Date();
      // const defaultDate= `${d.getDate()}-${d.getMonth()}-${d.getFullYear()}`
      // const defaultDate = `${d.getFullYear()}-0${`${d.getMonth() + 1}`}-0${d.getDate()}`
-     const nowDate = moment().format('L'); 
-     const newFormat = nowDate.split('/')
-     const arrayNewFormat = [newFormat[2], newFormat[1], newFormat[0]]
-     const defaultDate = arrayNewFormat.join('-')
      // console.log(defaultDate);
      
      return (

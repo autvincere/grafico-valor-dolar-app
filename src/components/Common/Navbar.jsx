@@ -1,16 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
+import ToggleButton from '@material-ui/lab/ToggleButton';
+import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
+
 import { withRouter } from 'react-router-dom'
 import { Link } from 'react-router-dom';
-import { Box, Button } from '@material-ui/core'
 
-const Navbar = (props) => {
-     console.log(props);
+const Navbar = () => {
+
+     const [alignment, setAlignment] = useState('left');
+
+     const handleAlignment = (event, newAlignment) => {
+          setAlignment(newAlignment);
+     };
+     
      return (
-          <>
-               <Button variant="text" component={Link} to={'/'}>Valor Individual</Button>
-                         |
-               <Button variant="text" component={Link} to={'/valor-por-periodos'}>Valor Por Períodos</Button>
-          </>
+          <ToggleButtonGroup
+          value={alignment}
+          exclusive
+          onChange={handleAlignment}
+          aria-label="text alignment"
+        >
+          <ToggleButton value="left" component={Link} to={'/'}>
+          Valor Individual
+          </ToggleButton>
+               <ToggleButton value="center" component={Link} to={'/valor-por-periodos'}>
+               Valor Por Períodos
+          </ToggleButton>
+        </ToggleButtonGroup>
      )
 }
 

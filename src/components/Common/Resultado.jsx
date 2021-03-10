@@ -6,7 +6,7 @@ import Box from '@material-ui/core/Box';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import Grid from '@material-ui/core/Grid'
 
-import { firstLetterCapital } from '../Utils'
+import { firstLetterCapital } from '../../Utils'
 import 'moment/locale/es'
 import moment from 'moment'
 

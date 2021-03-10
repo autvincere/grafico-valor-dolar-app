@@ -2,19 +2,18 @@ import React, { useContext } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 
-import { getValue } from '../Utils'
-import Chart from './Chart'
-import Resultado from 'components/Resultado';
-import { FinancialContext } from '../contexts/FinancialContext'
-import ProgressBar from './Common/ProgressBar';
-import Averages from './Common/Averages';
+import { getValue } from '../../Utils'
+import Chart from '../Common/Chart'
+import Resultado from 'components/Common/Resultado';
+import { ValueByDateOfDayContext } from '../../contexts/ValueByDateOfDayContext'
+import ProgressBar from '../Common/ProgressBar';
+import Averages from '../Common/Averages';
 
 const ValueByDateOfDay = () => {
-     const { fetchUnit, fetchYear, doneFetchUnit, doneFetchYear } = useContext(FinancialContext)
+     const { fetchUnit, fetchYear, doneFetchUnit, doneFetchYear } = useContext(ValueByDateOfDayContext)
 
      return (
           <Grid
-               // style={{height:'100vh'}}
                mt={20}
                container
                spacing={1}

@@ -1,18 +1,15 @@
 import React, { useContext } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import DateModule from './DateModule'
-import { ValueByDatesDolarContext } from '../contexts/ValueByDatesDolarContext'
+import DateModule from '../Common/DateModule'
+import { ValueByDatesDolarContext } from '../../contexts/ValueByDatesDolarContext'
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import Message from './Common/Message';
+import Message from '../Common/Message';
 import ChartTwoValues from './ChartTwoValues';
-import ProgressBar from './Common/ProgressBar';
-
-import { getValue } from '../Utils'
 
 const useStyles = makeStyles((theme) => ({
      root: {
-          flexGrow: 1,
+          // flexGrow: 1,
           marginTop: '30px'
      },
      paper: {

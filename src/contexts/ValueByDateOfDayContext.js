@@ -1,12 +1,16 @@
 import React, { createContext, useState, useEffect } from "react";
-import { dayDateValue, oneDateValue } from "../constants/index";
+import { dayDateValue, yearDateValue } from "../constants/index";
 
 export const ValueByDateOfDayContext = createContext();
 
 const ValueByDateOfDayContextProvider = ({ children }) => {
 
-     const [doneFetch, setDoneFetch] = useState(false);
-
+     // const [prueba, setPrueba] = useState({
+     //      Moneda: 'bitcoin',
+     //      valor: 7750
+     // })
+     const [doneFetchUnit, setDoneFetchUnit] = useState(false);
+     const [doneFetchYear, setDoneFetchYear] = useState(false);
      const [fetchUnit, setFetchUnit] = useState([]);
      
      const [fetchYear, setFetchYear] = useState([]);
@@ -15,56 +19,39 @@ const ValueByDateOfDayContextProvider = ({ children }) => {
           try {
                const res = await fetch(dayDateValue('dolar'))
                const data = await res.json()
-               setDoneFetch(true)
                setFetchUnit(data.Dolares)
+               setDoneFetchUnit(true);
 
           } catch (error) {
-               setDoneFetch(false)
                console.log(error)
           }
           
      }
      
      const getFinancialUnitYear = async () => {
+          const d = new Date()
+          const actualYear = d.getFullYear()
           
           try {
-               const res = await fetch('https://api.sbif.cl/api-sbifv3/recursos_api/dolar/2021?apikey=bcab1f6493785dc221a83db5d7cc6d3cbd6525d0&formato=json')
+               const res = await fetch(yearDateValue('dolar',actualYear))
                const data = await res.json()
-               console.log(data.Mensaje)
-               setDoneFetch(true)
                setFetchYear(data.Dolares)
+               setDoneFetchYear(true);
 
           } catch (error) {
-               setDoneFetch(false)
-               console.log(error.Mensaje);
+               console.log(error);
           }
 
      }
-     // const getFinancialUnit = () => {
-     //      fetch(dayDateValue('dolar'))
-     //      // fetch('https://api.sbif.cl/api-sbifv3/recursos_api/dolar?apikey=bcab1f6493785dc221a83db5d7cc6d3cbd6525d0&formato=json')
-     //           .then( res => res.json())
-     //           .then(data => {
-     //                // setDoneFetch(true)
-     //                setFetchUnit(data.Dolares)
-     //           })
-     //           .catch( err => console.log(err))    
-     // }
      
      useEffect(
           () => getFinancialUnit(),
           []
      );
-     useEffect(() => getFinancialUnitYear(),[])
+     useEffect(() => getFinancialUnitYear(), [])
      
-     // useEffect(() => {
-     //           return () => {
-     //                getFinancialUnit();
-     //           };
-     //         }, []);
-
   return (
-     <ValueByDateOfDayContext.Provider value={{ fetchUnit, fetchYear, doneFetch }}>
+     <ValueByDateOfDayContext.Provider value={{ fetchUnit, fetchYear,doneFetchUnit,doneFetchYear }}>
      { children }
      </ValueByDateOfDayContext.Provider>
   )
