@@ -38,21 +38,19 @@ const Header = () => {
                     </Toolbar>
                </AppBar>
                <Grid
-                 container
-                 spacing={1}
-                 direction="row"
-                 justify="center"
-                 alignItems="center"
-                 alignContent="center"
-                 wrap="nowrap"
-                 
-               >
-                 <Box mt={4} mb={4}>
-                         <Navbar />
-               </Box>
-               </Grid>
-               
+                    container
+                    spacing={1}
+                    direction="row"
+                    justify="center"
+                    alignItems="center"
+                    alignContent="center"
+                    wrap="nowrap"
 
+               >
+                    <Box mt={4} mb={4}>
+                         <Navbar />
+                    </Box>
+               </Grid>
           </div>
 
      )

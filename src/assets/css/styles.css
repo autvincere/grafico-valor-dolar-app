@@ -25,4 +25,7 @@ body {
 .message{
   padding: 12px 16px;;
 }
+.MuiGrid-spacing-xs-1 {
+  width: calc(100% + 4px)!important;
+}
 
