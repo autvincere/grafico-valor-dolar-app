@@ -3,7 +3,7 @@ import React from 'react'
 const Message = ({message}) => {
      return (
           <>
-               <h3>
+               <h3 className='message'>
                     {message}
                </h3>
           </>

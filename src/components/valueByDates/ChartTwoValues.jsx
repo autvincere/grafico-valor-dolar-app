@@ -1,6 +1,6 @@
 import React from 'react'
 import Box from '@material-ui/core/Box';
-import Chart from '../Common/Chart'
+import Chart from '../Common/Chart.jsx'
 import Averages from '../Common/Averages';
 import ProgressBar from '../Common/ProgressBar';
 import Grid from '@material-ui/core/Grid';

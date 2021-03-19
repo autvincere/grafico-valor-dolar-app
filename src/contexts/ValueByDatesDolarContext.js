@@ -40,7 +40,7 @@ const ValueByDatesDolarContextProvider = ({ children }) => {
           const data = await res.json()
           setDateRange(data.Dolares)
           setDoneFetchValues(true);
-          console.log(data.Dolares)
+          // console.log(data.Dolares)
 
      } catch (error) {
           console.log(error)

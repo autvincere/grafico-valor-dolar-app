@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 
@@ -7,26 +7,36 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
-     const [alignment, setAlignment] = useState('left');
+     const [location, setlocation] = useState('home');
 
-     const handleAlignment = (event, newAlignment) => {
-          setAlignment(newAlignment);
+     const handleLocation = (event, newAlignment) => {
+          setlocation(newAlignment);
      };
-     
+
+     const checkLocation = () => {
+          const currentLocation = window.location.pathname.split("/")[1];
+          currentLocation === '' ? setlocation('home') : setlocation('valor-por-periodos')
+     }
+
+     useEffect(() => { checkLocation() }, [])
+
      return (
           <ToggleButtonGroup
-          value={alignment}
-          exclusive
-          onChange={handleAlignment}
-          aria-label="text alignment"
-        >
-          <ToggleButton value="left" component={Link} to={'/'}>
-          Valor Individual
-          </ToggleButton>
-               <ToggleButton value="center" component={Link} to={'/valor-por-periodos'}>
-               Valor Por Períodos
-          </ToggleButton>
-        </ToggleButtonGroup>
+               value={location}
+               exclusive
+               onChange={handleLocation}
+               aria-label="text location"
+          >
+               
+               <ToggleButton value="home" component={Link} to={'/'}>
+                    Valor Individual
+               </ToggleButton>
+               
+               <ToggleButton value="valor-por-periodos" component={Link} to={'/valor-por-periodos'}>
+                    Valor Por Períodos
+               </ToggleButton>
+               
+          </ToggleButtonGroup>
      )
 }
 

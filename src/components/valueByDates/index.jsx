@@ -12,9 +12,18 @@ const useStyles = makeStyles((theme) => ({
           // flexGrow: 1,
           marginTop: '30px'
      },
-     paper: {
-          height: 140,
-          width: 100,
+     boxChartOne: {
+          marginRight: '48px',
+          [theme.breakpoints.down('md')]: {
+               marginRight: '0px',
+             }
+     },
+     boxChartTwo: {
+          marginLeft: '48px',
+          [theme.breakpoints.down('md')]: {
+               marginLeft: '0px',
+               marginTop:'30px',
+             }
      },
      control: {
           padding: theme.spacing(2),
@@ -30,10 +39,10 @@ const ValueByDates = () => {
           <Grid container className={classes.root} spacing={1}>
                <Grid item xs={12}>
                     <Grid container justify="center">
-                         <Box mr={6}>
+                         <Box className={classes.boxChartOne}>
                               <DateModule handleChangeDate={handleChangeDate} id="dateOne" />
                          </Box>
-                         <Box ml={6}>
+                         <Box className={classes.boxChartTwo}>
                               <DateModule handleChangeDate={handleChangeDate} id="dateTwo" />
                          </Box>
                          <Grid
